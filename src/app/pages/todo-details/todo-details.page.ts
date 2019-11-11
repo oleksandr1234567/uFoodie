@@ -63,11 +63,7 @@ elapsed: any = {
 
 overallTimer: any = false;
 
-
-
 userEmail: string;
-
-
 
 startTime() {
 // stops timer if pressed again but starts again if no stop button
@@ -144,14 +140,6 @@ StopTime() {
   };
 
 }
-
-
-
-
-
-
-
-
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params.id;

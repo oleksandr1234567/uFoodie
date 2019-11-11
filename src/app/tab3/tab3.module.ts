@@ -1,3 +1,5 @@
+// Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341
+
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
