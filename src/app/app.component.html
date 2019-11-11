@@ -22,15 +22,15 @@
               </ion-menu-toggle>
             </ion-list>
           </ion-content>
-
+        <ion-menu-toggle>
                 <!--  external link button  -->
-          <ion-button color="danger" href="https://www.bbcgoodfood.com/">
+          <ion-button expand="block" color="danger" href="https://www.bbcgoodfood.com/">
             Recipes from our friends</ion-button>
                 <!--  our extra log out button  -->
             <ion-button color="primary" (click)="logout()" expand="block">
                 Log out
               </ion-button>
-
+            </ion-menu-toggle>
       </ion-menu>
     
       <ion-router-outlet main></ion-router-outlet>
