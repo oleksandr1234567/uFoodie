@@ -1,0 +1,100 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+
+    <ion-toolbar color="primary"> 
+        <!--Sidemenu button-->
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons> 
+          <!--Log out button-->  
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="ios-power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+      <ion-title>
+        Our Favourites
+        
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+<ion-list>
+<!--item divider makes the page nicer to scroll with categories-->
+  <ion-item-divider>
+  <ion-label>
+    Indian
+  </ion-label>
+  </ion-item-divider>
+
+    <ion-item>
+        <ion-avatar class="item-avatar" slot="start">
+            <img src="/assets/tikka.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goTikkaPage()">Chicken tikka masala<br>(Slow cooker)</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar class="item-avatar"  slot="start">
+            <img src="/assets/vindaloo.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goVindalooPage()">Chicken Vindaloo</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar class="item-avatar"  slot="start">
+            <img src="/assets/paneer.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goPaneerPage()">Spinach dhal with paneer</ion-label>
+    </ion-item>
+
+  <ion-item-divider>
+  <ion-label>
+    Italian
+  </ion-label>
+  </ion-item-divider>
+
+  <ion-item>
+      <ion-avatar class="item-avatar"  slot="start">
+          <img src="/assets/su-pizza.jpg" alt="" />
+        </ion-avatar>
+  <ion-label (click)="goPizzaPage()">Super healthy Pizza</ion-label>
+  </ion-item>
+  <ion-item>
+      <ion-avatar class="item-avatar"  slot="start">
+          <img src="/assets/spaghetti.jpg" alt="" />
+        </ion-avatar>
+  <ion-label (click)="goSpaghettiPage()">Classic spaghetti</ion-label>
+  </ion-item>
+
+    <ion-item-divider>
+    <ion-label>
+      French
+    </ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+        <ion-avatar class="item-avatar"  slot="start">
+            <img src="/assets/cous.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goCousPage()">Couscous salad</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar class="item-avatar"  slot="start">
+            <img src="/assets/spaghetti.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goSpaghettiPage()">Classic spaghetti</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar class="item-avatar"  slot="start">
+            <img src="/assets/ftoast.jpg" alt="" />
+          </ion-avatar>
+    <ion-label (click)="goFtoastPage()">French toast</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+
+      </ion-content>

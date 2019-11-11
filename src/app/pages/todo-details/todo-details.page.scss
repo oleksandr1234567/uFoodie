@@ -1,0 +1,35 @@
+// Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341
+// text css
+.larger {
+    font-size: 38px;
+    text-align: center;
+  }
+  
+  .medium {
+    font-size: 16px;
+    text-align: center;
+  }
+  .smaller {
+    font-size: 12px;
+  }
+// timer css  
+  .progress-wrapper {
+    position: relative;
+    margin: 20px auto;
+    font-size: 23px;
+  }
+  
+  .progress {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 5.5em;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 100;
+  }
+  
+  .progress-clock {
+    display: block; 
+    margin: auto;
+  }

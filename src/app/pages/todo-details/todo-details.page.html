@@ -1,0 +1,133 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="tabs/tab2"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add new Recipe</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content class="ion-padding">
+   
+    <ion-row>
+      <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+        offset-xl="4">
+        <ion-card>
+        <ion-card-content>
+<!-- image of an empty plate and the name of the recipe appears when the entry is saved-->
+            <ion-header class="ion-text-center" class="larger">{{todo.Recipe}}</ion-header>
+              <br><img src="/assets/empty.png" alt="" /><br>
+<!-- text input fields auto-grow to make them grow when more text is added-->
+  <ion-list lines="full">
+    <ion-item>
+      <ion-input auto-grow="true"  required type="text" placeholder="Recipe" [(ngModel)]="todo.Recipe"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input auto-grow="true"  required type="HH:mm" placeholder="Cooking time" [(ngModel)]="todo.Cookingtime"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Ingredients" [(ngModel)]="todo.Ingredients"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true" required type="text" placeholder="Step 1:" [(ngModel)]="todo.Instructions"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 2:" [(ngModel)]="todo.Instructions2"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 3:" [(ngModel)]="todo.Instructions3"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 4:" [(ngModel)]="todo.Instructions4"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 5:" [(ngModel)]="todo.Instructions5"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 6:" [(ngModel)]="todo.Instructions6"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 7:" [(ngModel)]="todo.Instructions7"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-textarea auto-grow="true"  required type="text" placeholder="Step 8:" [(ngModel)]="todo.Instructions8"></ion-textarea>
+      </ion-item>
+    <ion-item>
+      <ion-input auto-grow="true"  required type="number" placeholder="Rating" [(ngModel)]="todo.Rating"></ion-input>
+    </ion-item>
+
+
+<!--favourite button-->
+    <ion-item *ngFor="let entry of form">
+        <ion-label>{{entry.val}}</ion-label>
+        <ion-checkbox slot="end" required type="boolean"  placeholder="Favourite" [(ngModel)]="todo.Favourite"></ion-checkbox>
+      </ion-item>
+
+
+
+  </ion-list>
+
+<!-- save button-->  
+  <ion-button expand="block" (click)="saveTodo()">Save</ion-button>
+
+</ion-card-content>
+</ion-card>
+
+</ion-col>
+</ion-row>
+
+<ion-card>
+    <ion-card-content>
+  <!--timer-->
+
+  <ion-item>
+    <ion-label>Timer Duration</ion-label>
+  <ion-datetime display-format="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
+  </ion-item>
+  <!-- displays time elapsed-->
+  <div class ="progress-wrapper" >
+    <div class="progress">
+      {{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}
+    </div>
+  </div>
+  
+    <!-- Circle progress HTML for timer-->
+    <circle-progress class="progress-clock" (click)="startTime()"
+    [percent]="percent"
+    [maxPercent]="100"
+    [radius]="radius"
+    [showTitle]="false"  
+    [showSubtitle]="false"
+    [showUnits]="false"
+    [outerStrokeWidth]="16"
+    [outerStrokeColor]="'#ffb8b8'"
+    [showZeroOuterStroke]="false"
+    [backgroundStroke]="'#d40000'"
+    [backgroundStrokeWidth]="3"
+    [outerStrokeGradient]="true"
+    [outerStrokeGradientStopColor]="'#d40000'"
+    [showInnerStroke]="false"
+  ></circle-progress>
+  
+  <br><br>
+  
+  <!-- buttons to start and stop timer-->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ng-container *ngIf="timer == false; else running">
+      <ion-fab-button (click)="startTime()">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+    </ng-container> 
+    <ng-template #running>
+        <ion-fab-button (click)="StopTime()">
+            <ion-icon name="square"></ion-icon>
+          </ion-fab-button>
+    </ng-template>
+  </ion-fab>
+  
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>

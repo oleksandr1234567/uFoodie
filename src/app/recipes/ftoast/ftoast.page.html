@@ -1,0 +1,122 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/tab5"></ion-back-button>
+      </ion-buttons>
+      <ion-title>French toast</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content class="ion-padding">
+     
+      <ion-row>
+        <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+          offset-xl="4">
+          <ion-card>
+          <ion-card-content>
+            <ion-header class="ion-text-center" class="larger">French toast</ion-header>
+              <br><img src="/assets/ftoast.jpg" alt="" /><br>
+  
+    <ion-item>
+    <ion-label>Preparation time: 0:05<br></ion-label>
+    </ion-item>
+    <ion-item>
+    <ion-label>Cooking time: 0:15<br></ion-label>
+    </ion-item>
+    <ion-item><br>
+        Ingredients: <br><br> 
+        * 2 large eggs<br> 
+        * 80ml whole milk<br> 
+        * 40ml double cream<br> 
+        * 1 tsp vanilla extract<br> 
+        * 1/2 tsp cinnamon<br> 
+        * 4 thick slices brioche<br> 
+        * 2 tbsp vegetable oil<br> 
+        * 2 tbsp butter<br> 
+        * icing sugar and fresh berries, to serve (optional)<br><br>
+
+    </ion-item>
+    <ion-item><br>
+        Method: <br><br>
+        1. 
+        Whisk together the eggs, milk, cream, vanilla and <br>
+        cinnamon. Lay the brioche slices in a single layer <br>
+        in a shallow dish and pour the egg mixture over <br>
+        them. Allow to soak for 2-3 mins, then carefully <br>
+        turn over and soak for 2 mins more.<br><br>
+        2. 
+        Heat 1 tbsp of the vegetable oil and butter in a <br>
+        non-stick frying pan over a medium heat until <br>
+        foaming. Carefully lift 2 slices of the soaked <br>
+        brioche out of the dish and add to the frying pan. <br>
+        Fry for 3 mins on each side, until golden and crisp, <br>
+        then place on a wire rack over a baking tray in a <br>
+        warm oven while you repeat with the remaining slices.<br><br>
+        3. 
+        Serve dusted in icing sugar and scattered with fresh <br>
+        berries, if you like.<br><br>
+
+    </ion-item>
+
+  </ion-card-content>
+  </ion-card>
+  
+  </ion-col>
+  </ion-row>
+  
+  <ion-card>
+    <ion-card-content>
+  
+  <!-- Adjust here for timer durations into days for example-->
+  <ion-item>
+    <ion-label>Timer Duration</ion-label>
+  <ion-datetime display-format="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
+  </ion-item>
+  <!-- displays time elapsed-->
+  <div class ="progress-wrapper" >
+    <div class="progress">
+      {{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}
+    </div>
+  </div>
+  
+    <!-- Circle progress HTML for timer-->
+    <circle-progress class="progress-clock" (click)="startTime()"
+    [percent]="percent"
+    [maxPercent]="100"
+    [radius]="radius"
+    [showTitle]="false"  
+    [showSubtitle]="false"
+    [showUnits]="false"
+    [outerStrokeWidth]="16"
+    [outerStrokeColor]="'#ffb8b8'"
+    [showZeroOuterStroke]="false"
+    [backgroundStroke]="'#d40000'"
+    [backgroundStrokeWidth]="3"
+    [outerStrokeGradient]="true"
+    [outerStrokeGradientStopColor]="'#d40000'"
+    [showInnerStroke]="false"
+  ></circle-progress>
+  
+  <br><br>
+  
+  <!-- buttons to start and stop timer-->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ng-container *ngIf="timer == false; else running">
+      <ion-fab-button (click)="startTime()">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+    </ng-container> 
+    <ng-template #running>
+        <ion-fab-button (click)="StopTime()">
+            <ion-icon name="square"></ion-icon>
+          </ion-fab-button>
+    </ng-template>
+  </ion-fab>
+  
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>
+  

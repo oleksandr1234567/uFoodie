@@ -1,0 +1,56 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+
+
+  <ion-toolbar color="primary"> 
+    <!--Sidemenu button-->
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons> 
+      <!--Log out button-->  
+<ion-buttons slot="end">
+  <ion-button (click)="logout()">
+    <ion-icon slot="icon-only" name="ios-power"></ion-icon>
+  </ion-button>
+</ion-buttons>
+
+    <ion-title>
+      Home
+      
+    </ion-title>
+  </ion-toolbar>
+  
+ 
+
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <img src="/assets/pizza.png" alt="" />
+      <ion-card-header>
+        <ion-card-subtitle class="ion-text-center">{{userEmail}}</ion-card-subtitle>
+        <ion-card-subtitle class="ion-text-center"><a (click)="logout()" class="smaller">Not you?</a></ion-card-subtitle>
+        <ion-card-title class="ion-text-center">Welcome back to <br> uFoodie</ion-card-title>
+      </ion-card-header>
+      <ion-card-content class="ion-text-center">
+        <p>Now that you're back home, we can continue to store your recipes!<br><br>
+          If you are new here, uFoodie is a unique service with hearts pointed 
+          towards the chef's needs. Here you will find some of our own recipes, 
+          yet the power is in your hands! You will now be able to store your own 
+          favourites, search for inspiration and be able to have a timer without 
+          having to leave the comfort of this App... Or even the recipe page!<br><br>
+          Bon appétit 👌<br><br>
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+
+
+
+</ion-content>

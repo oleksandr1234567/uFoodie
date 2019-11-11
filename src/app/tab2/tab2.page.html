@@ -1,0 +1,73 @@
+<!--// Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+    <ion-toolbar color="primary"> 
+        <!--Sidemenu button-->
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons> 
+          <!--Log out button-->  
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="ios-power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="medium">
+      {{userEmail}}'s <br>
+      Recipes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+ 
+  <ion-list>
+ 
+    <ng-container *ngIf="!todos || todos.length == 0">
+      <div *ngFor="let n of [0,1,2]" padding>
+        <ion-skeleton-text></ion-skeleton-text>
+        <p>
+          <ion-skeleton-text class="fake-skeleton"></ion-skeleton-text>
+        </p>
+      </div>
+    </ng-container>
+
+
+
+   
+<!-- displays the list with values taken from saved entries-->   
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+        <ion-checkbox value="Favourite"></ion-checkbox>
+        <ion-label>
+          {{ item.Recipe }}
+          
+          <ion-label class="larger" color="primary">
+              {{ item.Cookingtime }}
+              <p class="smaller">{{ item.createdAt | date:'short' }}</p>
+            </ion-label>
+        </ion-label>
+        <ion-note slot="end" color="primary">{{ item.Rating }}</ion-note>
+      </ion-item>
+ 
+      <ion-item-options side="end">
+        <ion-buttons slot="end">
+          <ion-button (click)="remove(item)">
+            <ion-icon color="danger" slot="icon-only" name="ios-trash"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item-options>
+    </ion-item-sliding>
+ 
+  </ion-list>
+<!--new rcipe button directing to the editing page with blank form--> 
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button routerLink="/details" routerDirection="forward">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+</ion-content>
+
+

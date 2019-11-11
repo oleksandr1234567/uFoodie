@@ -1,0 +1,80 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+
+    <ion-toolbar color="primary"> 
+        <!--Sidemenu button-->
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+          </ion-buttons> 
+          <!--Log out button-->  
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="ios-power"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  
+      <ion-title>
+        Timer
+        
+      </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content padding>
+  
+<!-- Adjust here for timer durations into days for example-->
+<ion-item>
+  <ion-label>Timer Duration</ion-label>
+<ion-datetime display-format="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
+</ion-item>
+<!-- displays time elapsed-->
+<div class ="progress-wrapper" >
+  <div class="progress">
+    {{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}
+  </div>
+</div>
+
+  <!-- Circle progress HTML for timer-->
+  <circle-progress class="progress-clock" (click)="startTime()"
+  [percent]="percent"
+  [maxPercent]="100"
+  [radius]="radius"
+  [showTitle]="false"  
+  [showSubtitle]="false"
+  [showUnits]="false"
+  [outerStrokeWidth]="16"
+  [outerStrokeColor]="'#ffb8b8'"
+  [showZeroOuterStroke]="false"
+  [backgroundStroke]="'#d40000'"
+  [backgroundStrokeWidth]="3"
+  [outerStrokeGradient]="true"
+  [outerStrokeGradientStopColor]="'#d40000'"
+  [showInnerStroke]="false"
+></circle-progress>
+
+
+
+<!-- buttons to start and stop timer-->
+<ion-fab vertical="bottom" horizontal="center" slot="fixed">
+  <ng-container *ngIf="timer == false; else running">
+    <ion-fab-button (click)="startTime()">
+        <ion-icon name="play"></ion-icon>
+      </ion-fab-button>
+  </ng-container> 
+  <ng-template #running>
+      <ion-fab-button (click)="StopTime()">
+          <ion-icon name="square"></ion-icon>
+        </ion-fab-button>
+  </ng-template>
+</ion-fab>
+
+
+
+
+</ion-content>
+  <!--<div class="video-container"><iframe width="853" height="480" src="https://www.youtube.com/embed/unFA_gMX9hw" frameborder="0" allowfullscreen></iframe></div>
+    -->

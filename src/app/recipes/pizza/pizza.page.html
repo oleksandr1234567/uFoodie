@@ -1,0 +1,127 @@
+<!-- Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341-->
+
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+          <ion-back-button defaultHref="/tabs/tab5"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Super healthy Pizza</ion-title>
+    </ion-toolbar>
+  </ion-header>
+   
+  <ion-content class="ion-padding">
+     
+      <ion-row>
+        <ion-col size="12" size-sm="10" offset-sm="1" size-md="8" offset-md="2" size-lg="6" offset-lg="3" size-xl="4"
+          offset-xl="4">
+          <ion-card>
+          <ion-card-content>
+            <ion-header class="ion-text-center" class="larger">Super healthy Pizza</ion-header>
+              <br><img src="/assets/su-pizza.jpg" alt="" /><br>
+  
+    <ion-item>
+    <ion-label>Preparation time: 0:15<br></ion-label>
+    </ion-item>
+    <ion-item>
+    <ion-label>Cooking time: 0:12<br></ion-label>
+    </ion-item>
+    <ion-item><br>
+        Ingredients: <br><br> 
+        * 100g each strong white and strong wholewheat flour<br>
+        * 1 tsp or 7g sachet easy-blend dried yeast<br>
+        * 125ml warm water<br><br>
+        For the topping:<br><br>
+        * 200g can chopped tomato, juice drained<br>
+        * handful cherry tomatoes, halved<br>
+        * 1 large courgette, thinly sliced using a peeler<br>
+        * 25g mozzarella, torn into pieces<br>
+        * 1 tsp capers in brine, drained<br>
+        * 8 green olives, roughly chopped<br>
+        * 1 garlic clove, finely chopped<br>
+        * 1 tbsp olive oil<br>
+        * 2 tbsp chopped parsley, to serve<br><br>
+
+    </ion-item>
+    <ion-item><br>
+        Method: <br><br>
+        1. 
+        Mix the flours and yeast with a pinch of salt in a <br>
+        food processor fitted with a dough blade. Pour in <br>
+        the water and mix to a soft dough, then work for <br>
+        1 min. Remove the dough and roll out on a lightly <br>
+        floured surface to a round about 30cm across. Lift <br>
+        onto an oiled baking sheet.<br><br>
+        2. 
+        Spread the canned tomatoes over the dough to within <br>
+        2cm of the edges. Arrange the cherry tomatoes and <br>
+        courgettes over the top, then scatter with the <br>
+        mozzarella. Mix the capers, olives and garlic, then <br>
+        scatter over the top. Drizzle evenly with the oil. <br>
+        Leave to rise for 20 mins. Heat oven to <br>
+        240C/ fan 220C/gas 9 or the highest setting.<br><br>
+        3. 
+        Bake the pizza for 10-12 mins until crisp and golden <br>
+        around the edges. Scatter with the parsley to serve.<br><br>
+
+    </ion-item>
+
+  </ion-card-content>
+  </ion-card>
+  
+  </ion-col>
+  </ion-row>
+  
+  <ion-card>
+    <ion-card-content>
+  
+  <!-- Adjust here for timer durations into days for example-->
+  <ion-item>
+    <ion-label>Timer Duration</ion-label>
+  <ion-datetime display-format="mm:ss" placeholder="Tap here" [(ngModel)]="fullTime"></ion-datetime>
+  </ion-item>
+  <!-- displays time elapsed-->
+  <div class ="progress-wrapper" >
+    <div class="progress">
+      {{elapsed.h}}:{{elapsed.m}}:{{elapsed.s}}
+    </div>
+  </div>
+  
+    <!-- Circle progress HTML for timer-->
+    <circle-progress class="progress-clock" (click)="startTime()"
+    [percent]="percent"
+    [maxPercent]="100"
+    [radius]="radius"
+    [showTitle]="false"  
+    [showSubtitle]="false"
+    [showUnits]="false"
+    [outerStrokeWidth]="16"
+    [outerStrokeColor]="'#ffb8b8'"
+    [showZeroOuterStroke]="false"
+    [backgroundStroke]="'#d40000'"
+    [backgroundStrokeWidth]="3"
+    [outerStrokeGradient]="true"
+    [outerStrokeGradientStopColor]="'#d40000'"
+    [showInnerStroke]="false"
+  ></circle-progress>
+  
+  <br><br>
+  
+  <!-- buttons to start and stop timer-->
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ng-container *ngIf="timer == false; else running">
+      <ion-fab-button (click)="startTime()">
+          <ion-icon name="play"></ion-icon>
+        </ion-fab-button>
+    </ng-container> 
+    <ng-template #running>
+        <ion-fab-button (click)="StopTime()">
+            <ion-icon name="square"></ion-icon>
+          </ion-fab-button>
+    </ng-template>
+  </ion-fab>
+  
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>
+  

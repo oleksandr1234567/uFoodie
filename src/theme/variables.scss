@@ -1,0 +1,29 @@
+// Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341
+
+/* Set variables for all modes */
+:root {
+  /* Set the background of the entire app */
+  --ion-background-color: #ffffff;
+  --ion-color-primary: #d11818;
+  --ion-color-primary-rgb: 235, 75, 88;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #e02525;
+  --ion-color-primary-tint: #d63737;
+  --ion-color-secondary: #e6bdb8;
+  --ion-color-danger: #f0de41;
+  /* Set the font family of the entire app */
+  --ion-font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Roboto", sans-serif;
+}
+
+
+/* Set text color of the entire app for iOS only */
+.ios {
+  --ion-text-color: rgb(0, 0, 0);
+}
+
+/* Set text color of the entire app for Material Design only */
+.md {
+  --ion-text-color: rgb(0, 0, 0);
+}
+
