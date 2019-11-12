@@ -1,7 +1,7 @@
 // Kristofer McCormick 1803203 & Oleksandr Zakirov 1802341
 
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-vindaloo',
@@ -12,6 +12,7 @@ export class VindalooPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
+    private alertCtrl: AlertController
 
   ) {}
 // this section sets the defaults for the timer
@@ -58,25 +59,31 @@ export class VindalooPage implements OnInit {
 // states the values of the minutes, hours and seconds and stores them as an integer
     let totalSeconds = Math.floor(this.minutes * 60) + parseInt(this.seconds);
 // this section adds to the progress percentage of the spinning wheel
-    this.timer = setInterval(() => {
+    this.timer = setInterval(async () => {
 
-// adds an action to stop the circle timer when the radius has reached the 100%
-// from the original input, the clock will continue to count for the convenience of the user
-// just in case they need an extra 2 minutes for example
-      if (this.percent === this.radius) {
-        clearInterval(this.timer);
+  // adds an action to stop the circle timer when the radius has reached the 100%
+  // from the original input, the clock will continue to count for the convenience of the user
+  // just in case they need an extra 2 minutes for example
+  // Alert will now be displayed no matter where the user is in the app
+        if (this.percent === this.radius) {
+          clearInterval(this.timer);
+          const alert = await this.alertCtrl.create({
+            header: 'Timer elapsed',
+            message: 'Your food is ready!',
+            buttons: ['Ok']
+          });
+          await alert.present();
+
+        }
+        if (!this.overallTimer) {
+          this.progressTimer();
+        }
 
 
-      }
-      if (!this.overallTimer) {
-        this.progressTimer();
-      }
-
-
-      this.percent = Math.floor((this.progress / totalSeconds) * 100);
-      this.progress++;
-    }, 1000);
-  }
+        this.percent = Math.floor((this.progress / totalSeconds) * 100);
+        this.progress++;
+      }, 1000);
+    }
 
   progressTimer() {
     let countDownDate = new Date();
